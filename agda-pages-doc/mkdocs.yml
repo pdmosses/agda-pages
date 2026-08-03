@@ -1,8 +1,7 @@
 site_name: Agda-Pages
-site_url: https://pdmosses.github.io/agda-pages/
+site_url:  https://pdmosses.github.io/agda-pages/
 repo_name: pdmosses/agda-pages
-repo_url: https://github.com/pdmosses/agda-pages
-
+repo_url:  https://github.com/pdmosses/agda-pages
 
 theme:
 
@@ -63,28 +62,28 @@ extra_css:
   - stylesheets/extra.css
 
 markdown_extensions:
-  admonition: {}
-  attr_list: {}
-  def_list: {}
-  footnotes: {}
-  md_in_html: {}
-  pymdownx.arithmatex:
-    generic: true
-  pymdownx.caret: {}
-  pymdownx.critic:
-    mode: view
-  pymdownx.details: {}
-  pymdownx.emoji:
-    emoji_index: !!python/name:material.extensions.emoji.twemoji
-    emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  pymdownx.keys: {}
-  pymdownx.mark: {}
-  pymdownx.superfences: {}
-  pymdownx.tasklist:
-    custom_checkbox: true
-  tables: {}
-  pymdownx.tilde: {}
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - pymdownx.tilde
 
 plugins:
-  awesome-nav: {}
-  search: {}
+- search
+- awesome-nav
