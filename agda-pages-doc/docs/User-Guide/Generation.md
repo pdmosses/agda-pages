@@ -3,17 +3,28 @@
 All `make` commands are to be run from the directory that contains
 `mkdocs.yml`, `docs`, and your `Makefile`.
 
-Simply run `make` to check your Agda code, generate/update your local website,
-and browse[^1] a preview of your website locally! Then `make deploy` publishes
-the website on GitHub Pages.
+To check your Agda code, generate/update your local website,
+and browse[^1] a preview of your website locally, run:
+
+```sh
+make check
+make web
+make serve
+```
+
+Then to publish the generated website on GitHub Pages, run:
+
+```sh
+make deploy
+```
 
 [^1]:
     By default, MkDocs serves the website at `localhost:8000`. You can change
     that by setting `SERVER` to a different port number in your Makefile.
 
 MkDocs reports any broken internal links when serving or deploying the website.
-You can also check before deploying your website that all internal and external
-links are valid by installing [linkcheck], serving your website, and running:
+You can also check *before* deploying that all internal and external links are
+valid by installing [linkcheck], serving your website locally, and running:
 
 ```sh
 your-path-to-linkcheck/linkcheck -e :your-localhost-port --skip-file your-path-to-agda2pages/skip.txt
@@ -84,15 +95,15 @@ For further version management commands, see the [mike] documentation.
 
 ## Miscellaneous
 
-| Command       | Effect                                       |
-| ------------- | -------------------------------------------- |
-| `make clean`  | remove all generated files                   |
-| `make help`   | show explanations of the main targets        |
-| `make debug`  | show values of variables (for developer use) |
+| Command          | Effect                                                     |
+| ---------------- | ---------------------------------------------------------- |
+| `make clean`     | remove unprotected configuration-dependent generated files |
+| `make clean-all` | remove all unprotected generated files                     |
+| `make help`      | show explanations of the main targets                      |
 
 !!! warning
 
-    `make clean` deletes the local generated website!
+    `make clean` and `make clean-all` **delete** the local generated website!
 
 [mike]: https://github.com/jimporter/mike/
 [linkcheck]: https://github.com/filiph/linkcheck/
