@@ -1,0 +1,90 @@
+site_name: Agda-Pages
+site_url: https://pdmosses.github.io/agda-pages/
+repo_name: pdmosses/agda-pages
+repo_url: https://github.com/pdmosses/agda-pages
+
+
+theme:
+
+  name: material
+
+  # Use local system fonts (instead of Google fonts such as Roboto):
+
+  font: false
+
+  # Support automatic / light / dark modes:
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/lightbulb-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to system preference
+
+  features:
+
+    - content.code.copy
+    - navigation.expand     # unsuitable for large sites
+    - navigation.footer     # unsuitable for large sites
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.path
+    # - navigation.prune    # suppresses effect of navigation.expand
+    # - navigation.sections # incompatible with navigation.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate       # incompatible with navigation.indexes
+
+# Agda Pages requires the use of directory URLs:
+use_directory_urls: true
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  admonition: {}
+  attr_list: {}
+  def_list: {}
+  footnotes: {}
+  md_in_html: {}
+  pymdownx.arithmatex:
+    generic: true
+  pymdownx.caret: {}
+  pymdownx.critic:
+    mode: view
+  pymdownx.details: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  pymdownx.keys: {}
+  pymdownx.mark: {}
+  pymdownx.superfences: {}
+  pymdownx.tasklist:
+    custom_checkbox: true
+  tables: {}
+  pymdownx.tilde: {}
+
+plugins:
+  awesome-nav: {}
+  search: {}

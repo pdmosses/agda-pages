@@ -1,0 +1,5 @@
+/* Tables: Use same font-size as ordinary text */
+
+.md-typeset table:not([class]) {
+  font-size: inherit;
+}

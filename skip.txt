@@ -1,0 +1,10 @@
+# Install linkcheck from https://github.com/filiph/linkcheck/
+# and copy this file to the same directory as your Makefile.
+#
+# While serving a website in one shell, use another shell or thread to run:
+#
+# linkcheck -e :your-localhost-port-number --skip-file skip.txt
+
+\.css$
+
+# Append regexps matching the URLs of sites reported as inaccessible.

@@ -1,0 +1,7 @@
+nav:
+  - Home:
+    - index.md
+    - About.md
+  - User Guide:
+    - User-Guide/index.md
+    - User-Guide/*
