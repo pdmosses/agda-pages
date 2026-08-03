@@ -39,6 +39,12 @@ export NO_MKDOCS_2_WARNING=1
 mkdocs serve --livereload --dev-addr localhost:8001
 ```
 
+To deploy the [Agda-Pages] doc website to GitHub Pages:
+
+```sh
+mkdocs gh-deploy
+```
+
 ## Installation
 
 To use Agda-Pages to generate a website from Agda code in your own repository,
