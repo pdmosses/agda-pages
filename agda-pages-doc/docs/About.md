@@ -44,6 +44,10 @@ organize the required files and configure the website navigation.
 
 ## Examples
 
+The **[Agda-Pages Demo]** website illustrates and tests use of Agda-Pages.
+The [Demo] section lists the Agda files included in the repository; the
+[Library] section lists the many files imported by the included modules.
+
 The following websites were originally generated with [Agda-Material template].
 Their development involved editing a large Makefile copied from the template,
 with manual updates of the copied Makefile for new releases of Agda-Material.
@@ -79,6 +83,8 @@ the official [TypeTopology] website, and is unversioned.
 [Agda-Pages repository]:  https://github.com/pdmosses/agda-pages/
 
 [Agda-Pages Demo]:        https://pdmosses.github.io/agda-pages-demo/
+[Demo]:                   https://pdmosses.github.io/agda-pages-demo/Demo/
+[Library]:                https://pdmosses.github.io/agda-pages-demo/Library/
 [Agda-StdLib]:            https://pdmosses.github.io/agda-stdlib/
 [TypeTopologyDocs]:       https://pdmosses.github.io/TypeTopology/
 [XDS-Agda]:               https://pdmosses.github.io/xds-agda/

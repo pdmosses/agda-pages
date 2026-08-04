@@ -27,7 +27,7 @@ You can also check *before* deploying that all internal and external links are
 valid by installing [linkcheck], serving your website locally, and running:
 
 ```sh
-your-path-to-linkcheck/linkcheck -e :your-localhost-port --skip-file your-path-to-agda2pages/skip.txt
+your-path-to-linkcheck/linkcheck -e :your-localhost-port --skip-file your-path-to-agda-pages/skip.txt
 ```
 
 To avoid error reports arising from checking links to CSS files, the skip-file

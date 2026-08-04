@@ -61,13 +61,13 @@ The pages directory should contain a directory `docs`, a `Makefile`, and a
 `mkdocs.yml` website configuration file; you cannot configure these names.
 The contents are explained below.
 
-In the demo repository, the `pages` directory also contains the `agda-pages`
-submodule, but that is not required.
+The pages directory is also the default location for the `agda-pages` submodule
+(as in the demo repository); you can configure a different location in the
+`Makefile`.
 
 !!! warning
 
-    Agda-Pages may overwrite a `.gitignore` file in the pages directory, and
-    directories named `site` and `temp`.
+    Agda-Pages may overwrite other files in the pages directory.
 
 #### `docs` directory
 
@@ -122,6 +122,11 @@ argument     | default      | interpretation
 `SERVER`     | `8000`       | `localhost` port for `make serve` 
 `SD`         | `sd`         | for sd v1.0.0; for sd v1.1.0 set `SD := sd -A`
 
+!!! info
+
+    The `SD` argument addresses a recent breaking change in `sd v1.1.0`;
+    see the [sd] repository.
+
 (`VERSION` is an optional argument of some versioning commands, and
 should *not* be set in the `Makefile`.)
 
@@ -131,11 +136,6 @@ The paths in the `Makefile` are relative to the pages directory.
 to avoid their removal during website generation. A glob pattern such as
 `docs/.../*.md` protects all the files in a subdirectory `...` of the `docs`
 directory.
-
-!!! info
-
-    The `SD` argument addresses a recent breaking change in `sd v1.1.0`;
-    see the [sd] repository.
 
 ### `mkdocs.yml`
 
@@ -166,5 +166,6 @@ directory from those generated from imported library files, by filtering on
 the glob pattern `Demo/*`. See the [Awesome-nav] plugin documentation for
 explanations of further possibilities.
 
-[Agda-Pages Demo]: https://github.com/pdmosses/agda2pages/
+[Agda-Pages Demo]: https://github.com/pdmosses/agda-pages/
 [Features]:        Features.md
+[Awesome-nav]:     https://lukasgeiter.github.io/mkdocs-awesome-nav/
