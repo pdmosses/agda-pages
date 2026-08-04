@@ -906,9 +906,9 @@
 <h1 id="configuration">Configuration</h1>
 <p>This section explains the organization of the files and directories used by
 Agda-Pages to generate websites, and how to configure Agda-Pages. The
-<a href="https://github.com/pdmosses/agda2pages/">Agda-Pages Demo</a> repository illustrates the details.</p>
+<a href="https://github.com/pdmosses/agda-pages/">Agda-Pages Demo</a> repository illustrates the details.</p>
 <h2 id="files-and-directories">Files and directories</h2>
-<p>The <a href="https://github.com/pdmosses/agda2pages/">Agda-Pages Demo</a> repository is organized as follows:</p>
+<p>The <a href="https://github.com/pdmosses/agda-pages/">Agda-Pages Demo</a> repository is organized as follows:</p>
 <div class="highlight"><pre><span></span><code>.
 ├─  LICENSE
 ├─  README.md
@@ -954,12 +954,12 @@ demo repository).</p>
 <p>The pages directory should contain a directory <code>docs</code>, a <code>Makefile</code>, and a
 <code>mkdocs.yml</code> website configuration file; you cannot configure these names.
 The contents are explained below.</p>
-<p>In the demo repository, the <code>pages</code> directory also contains the <code>agda-pages</code>
-submodule, but that is not required.</p>
+<p>The pages directory is also the default location for the <code>agda-pages</code> submodule
+(as in the demo repository); you can configure a different location in the
+<code>Makefile</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Agda-Pages may overwrite a <code>.gitignore</code> file in the pages directory, and
-directories named <code>site</code> and <code>temp</code>.</p>
+<p>Agda-Pages may overwrite other files in the pages directory.</p>
 </div>
 <h4 id="docs-directory"><code>docs</code> directory</h4>
 <p>Unless you have an Agda module named <code>index</code> or <code>README</code>, Agda-Pages requires
@@ -1039,6 +1039,11 @@ values before including <code>agda-pages.mk</code> from the <code>agda-pages</co
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>SD</code> argument addresses a recent breaking change in <code>sd v1.1.0</code>;
+see the [sd] repository.</p>
+</div>
 <p>(<code>VERSION</code> is an optional argument of some versioning commands, and
 should <em>not</em> be set in the <code>Makefile</code>.)</p>
 <p>The paths in the <code>Makefile</code> are relative to the pages directory. </p>
@@ -1046,11 +1051,6 @@ should <em>not</em> be set in the <code>Makefile</code>.)</p>
 to avoid their removal during website generation. A glob pattern such as
 <code>docs/.../*.md</code> protects all the files in a subdirectory <code>...</code> of the <code>docs</code>
 directory.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The <code>SD</code> argument addresses a recent breaking change in <code>sd v1.1.0</code>;
-see the [sd] repository.</p>
-</div>
 <h3 id="mkdocsyml"><code>mkdocs.yml</code></h3>
 <p>This file has to be a sibling of <code>docs</code>. <em>After</em> inheriting <code>agda-pages.yml</code>
 from the <code>agda-pages</code> directory, it should specify the <code>site_name</code> of the
@@ -1070,7 +1070,7 @@ features (see the <a href="../Features/">Features</a> section).</p>
 <p>The file <code>.nav.yml</code> in the <code>docs</code> directory of the demo repository separates
 the navigation for the webpages generated from the modules in your Agda code
 directory from those generated from imported library files, by filtering on
-the glob pattern <code>Demo/*</code>. See the [Awesome-nav] plugin documentation for
+the glob pattern <code>Demo/*</code>. See the <a href="https://lukasgeiter.github.io/mkdocs-awesome-nav/">Awesome-nav</a> plugin documentation for
 explanations of further possibilities.</p>
 
 
