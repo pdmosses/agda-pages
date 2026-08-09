@@ -751,11 +751,10 @@ valid by installing <a href="https://github.com/filiph/linkcheck/">linkcheck</a>
 <div class="highlight"><pre><span></span><code>your-path-to-linkcheck/linkcheck<span class="w"> </span>-e<span class="w"> </span>:your-localhost-port<span class="w"> </span>--skip-file<span class="w"> </span>your-path-to-agda-pages/skip.txt
 </code></pre></div>
 <p>To avoid error reports arising from checking links to CSS files, the skip-file
-contains the line:</p>
+should include the line:</p>
 <div class="highlight"><pre><span></span><code><span class="se">\.</span>css$
 </code></pre></div>
-<p>Links to private or unpublished repositories are also reported as errors;
-use a custom skip-file to suppress them.</p>
+<p>The Agda-Pages repository provides <code>skip.txt</code> to use as a default skip-file.</p>
 <table>
 <thead>
 <tr>

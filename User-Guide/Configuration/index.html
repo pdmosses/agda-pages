@@ -931,8 +931,8 @@ Agda-Pages to generate websites, and how to configure Agda-Pages. The
 </code></pre></div>
 <h3 id="agda-code-directory">Agda code directory</h3>
 <p>Your Agda code can be in multiple directories (including your repository root
-directory). You configure their location in your <code>Makefile</code>. In the demo
-repository, all the Agda code is in the <code>agda</code> directory and its subdirectories.</p>
+directory). You configure their location in your <code>Makefile</code>. The default
+location is a sibling directory of your <code>Makefile</code> named <code>agda</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A top-level Agda module named <em>either</em> <code>index</code> <em>or</em> <code>README</code>
@@ -940,12 +940,8 @@ generates the <strong>home page</strong> for the website!</p>
 </div>
 <p>In the demo repository, all the Agda code is in the subdirectory <code>agda/Demo</code>,
 and the name of the module in <code>agda/Demo/index.lagda.md</code> is <code>Demo.index</code>; the
-source file for the demo website home page is an ordinary Markdown file.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The website builder (MkDocs) treats <code>index.md</code> and <code>README.md</code> as
-equivalent source files for the same webpage.</p>
-</div>
+source file for the demo website home page is the ordinary Markdown file
+<code>pages/docs/index.md</code>.</p>
 <h3 id="pages-directory">Pages directory</h3>
 <p>To generate webpages listing your Agda code, Agda-Pages requires a
 <em>subdirectory</em> of your repository. You configure its location in your
@@ -964,7 +960,7 @@ The contents are explained below.</p>
 <h4 id="docs-directory"><code>docs</code> directory</h4>
 <p>Unless you have an Agda module named <code>index</code> or <code>README</code>, Agda-Pages requires
 the <code>docs</code> directory to contain a Markdown source file for your home page,
-named <em>either</em> <code>index.md</code> <em>or</em> <code>README.md</code>.</p>
+named <em>either</em> <code>index.md</code> <em>or</em> <code>README.md</code>.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>In general, Agda-Pages generates a Markdown source file in <code>docs</code> from each
 Agda code file. You configure the Agda root module name(s) in your <code>Makefile</code>;
 Agda-Pages generates a webpage for each (transitively) imported Agda file,
@@ -987,7 +983,8 @@ included in the generated website.</p>
 <p>This file has to be a sibling of <code>docs</code>. It should set all non-default argument
 values before including <code>agda-pages.mk</code> from the <code>agda-pages</code> directory.</p>
 <p>For example, the <code>Makefile</code> in the demo repository is:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">MODULES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>Demo.index
+<div class="highlight"><pre><span></span><code><span class="nv">SOURCES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>../agda
+<span class="nv">MODULES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>Demo.index
 <span class="nv">PROTECT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>docs/index.md<span class="w"> </span>docs/Library/index.md
 
 <span class="cp">include agda-pages/agda-pages.mk</span>
@@ -1009,7 +1006,7 @@ values before including <code>agda-pages.mk</code> from the <code>agda-pages</co
 </tr>
 <tr>
 <td><code>SOURCES</code></td>
-<td><code>../agda</code></td>
+<td><code>agda</code></td>
 <td>Agda import include-path(s), separated by spaces</td>
 </tr>
 <tr>
@@ -1072,6 +1069,18 @@ the navigation for the webpages generated from the modules in your Agda code
 directory from those generated from imported library files, by filtering on
 the glob pattern <code>Demo/*</code>. See the <a href="https://lukasgeiter.github.io/mkdocs-awesome-nav/">Awesome-nav</a> plugin documentation for
 explanations of further possibilities.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The website builder used by Agda-Pages (MkDocs) treats <code>index.md</code> and
+<code>README.md</code> as equivalent source files for the webpage <code>index.html</code>.
+If both an <code>index.md</code> file and a <code>README.md</code> file are found in the same
+directory, then the <code>index.md</code> file is used and the <code>README.md</code> file is
+ignored.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
