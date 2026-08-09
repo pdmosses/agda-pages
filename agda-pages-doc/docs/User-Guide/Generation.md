@@ -31,14 +31,13 @@ your-path-to-linkcheck/linkcheck -e :your-localhost-port --skip-file your-path-t
 ```
 
 To avoid error reports arising from checking links to CSS files, the skip-file
-contains the line:
+should include the line:
 
 ```sh
 \.css$
 ```
 
-Links to private or unpublished repositories are also reported as errors;
-use a custom skip-file to suppress them.
+The Agda-Pages repository provides `skip.txt` to use as a default skip-file.
 
 | Command        | Effect                                              |
 | -------------- | --------------------------------------------------- |

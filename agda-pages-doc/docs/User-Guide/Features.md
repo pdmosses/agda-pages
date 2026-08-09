@@ -39,14 +39,10 @@ the [agda-pages-features.yml] to your `mkdocs.yml`, then edit your copy.
 ## Larger websites
 
 The default theme features do *not* include the [navigation.expand] feature.
-The [User-Guide] section of this website illustrates the effect of the feature:
-on sufficiently wide displays, the navigation panel shows the entire hierarchy
-of subsections.
-
-However, the [navigation.expand] feature is likely to result in an inferior
-*user experience* (UX) for larger websites where top-level sections have more
-than about 50 pages, because the navigation panel may then require scrolling
-to access some subsections. 
+This feature is likely to result in an inferior *user experience* (UX) for
+larger websites where top-level sections have more than about 50 pages,
+because the navigation panel may then require scrolling to access some
+subsections.
 
 Also the [navigation.footer] feature is undesirable on larger websites with
 generated pages that list Agda modules: the links to the previous and next

@@ -33,8 +33,8 @@ The [Agda-Pages Demo] repository is organized as follows:
 ### Agda code directory
 
 Your Agda code can be in multiple directories (including your repository root
-directory). You configure their location in your `Makefile`. In the demo
-repository, all the Agda code is in the `agda` directory and its subdirectories.
+directory). You configure their location in your `Makefile`. The default
+location is a sibling directory of your `Makefile` named `agda`.
 
 !!! warning
 
@@ -43,12 +43,8 @@ repository, all the Agda code is in the `agda` directory and its subdirectories.
 
 In the demo repository, all the Agda code is in the subdirectory `agda/Demo`,
 and the name of the module in `agda/Demo/index.lagda.md` is `Demo.index`; the
-source file for the demo website home page is an ordinary Markdown file.
-
-!!! info
-
-    The website builder (MkDocs) treats `index.md` and `README.md` as
-    equivalent source files for the same webpage.
+source file for the demo website home page is the ordinary Markdown file
+`pages/docs/index.md`.
 
 ### Pages directory
 
@@ -73,7 +69,14 @@ The pages directory is also the default location for the `agda-pages` submodule
 
 Unless you have an Agda module named `index` or `README`, Agda-Pages requires
 the `docs` directory to contain a Markdown source file for your home page,
-named *either* `index.md` *or* `README.md`.
+named *either* `index.md` *or* `README.md`.[^1]
+
+[^1]:
+    The website builder used by Agda-Pages (MkDocs) treats `index.md` and
+    `README.md` as equivalent source files for the webpage `index.html`.
+    If both an `index.md` file and a `README.md` file are found in the same
+    directory, then the `index.md` file is used and the `README.md` file is
+    ignored.
 
 In general, Agda-Pages generates a Markdown source file in `docs` from each
 Agda code file. You configure the Agda root module name(s) in your `Makefile`;
@@ -104,6 +107,7 @@ values before including `agda-pages.mk` from the `agda-pages` directory.
 For example, the `Makefile` in the demo repository is:
 
 ```makefile
+SOURCES := ../agda
 MODULES := Demo.index
 PROTECT := docs/index.md docs/Library/index.md
 
@@ -115,7 +119,7 @@ The full list of arguments and their default values is as follows.
 argument     | default      | interpretation
 ------------ | ------------ | --------------------------------------------------
 `AGDA-PAGES` | `agda-pages` | path to the `agda-pages` submodule directory
-`SOURCES`    | `../agda`    | Agda import include-path(s), separated by spaces
+`SOURCES`    | `agda`       | Agda import include-path(s), separated by spaces
 `MODULES`    | `index`      | Agda root module name(s), separated by spaces
 `PROTECT`    |              | protected file path(s), separated by spaces
 `INDEXES`    | `true`       | linking directory names to `index` pages
