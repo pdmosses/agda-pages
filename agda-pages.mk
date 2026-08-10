@@ -296,17 +296,12 @@ web: clean
 		$(SD) '(<pre class="Agda">)' '$$1<code class="Agda">' $${file}; \
 		$(SD) '(</pre>)' '</code>$$1\n' $${file}; \
 		_='# Prepend front matter, preserving existing front matter:'; \
-		$(SD) -- '\A---\n' \
-		         "---\ntitle: $${title}\n" \
-			 $${file}; \
-		$(SD) -- '\A([^-])' \
-		         "---\ntitle: $${title}\n---\n\n\$$1" \
-			 $${file}; \
+		$(SD) -- '\A---\n'  "---\ntitle: $${title}\n" $${file}; \
+		$(SD) -- '\A([^-])' "---\ntitle: $${title}\n---\n\n\$$1" $${file}; \
 		_='# Ensure the page has a top-level heading:'; \
 		if ! grep -q '^# ' $${file}; then \
-		    $(SD) '\A(---\n[^`]*\n---\n)' \
-		          "\$$1\n# $${title}\n\n" \
-			  $${file}; \
+		    _='# Assume no backticks in metadata:'; \
+		    $(SD) '\A(---\n[^`]*\n---\n)' "\$$1\n# $${title}\n\n" $${file}; \
 		fi; \
 		;; \
 	    *) \
