@@ -56,7 +56,7 @@ The [Agda-Pages repository] supersedes the Agda-Material template. When it is
 added as a submodule, a simple Git command updates all its files to the latest
 commit.
 
-The websites listed below are now to be refactored to use Agda-Pages instead
+The websites listed below are being refactored to use Agda-Pages instead
 of the files copied from the [Agda-Material template].
 
 ### Denotational semantics in Agda
@@ -68,12 +68,12 @@ embeddings have evolved.
 ### Agda standard library
 
 The [Agda-StdLib] website is a prototype generated from the same Agda files as
-the official [Standard Library] webiste. The different versions correspond to
+the official [Standard Library] webiste. Different versions will correspond to
 released versions of the library, and show how the library has evolved.
 
-### TypeTopologyDocs
+### TypeTopology Pages
 
-The [TypeTopologyDocs] website is a prototype of an alternative rendering of
+The [TypeTopology Pages] website is a prototype of an alternative rendering of
 the official [TypeTopology] website, and is unversioned.
 
 [Home]:       index.md
@@ -85,9 +85,9 @@ the official [TypeTopology] website, and is unversioned.
 [Agda-Pages Demo]:        https://pdmosses.github.io/agda-pages-demo/
 [Demo]:                   https://pdmosses.github.io/agda-pages-demo/Demo/
 [Library]:                https://pdmosses.github.io/agda-pages-demo/Library/
-[Agda-StdLib]:            https://pdmosses.github.io/agda-stdlib/
-[TypeTopologyDocs]:       https://pdmosses.github.io/TypeTopology/
-[XDS-Agda]:               https://pdmosses.github.io/xds-agda/
+[Agda-StdLib]:            https://pdmosses.github.io/agda-stdlib/pages/master/
+[TypeTopology Pages]:     https://pdmosses.github.io/TypeTopology/
+[XDS-Agda]:               https://pdmosses.github.io/xds-agda/dev/
 
 [Standard Library]:       https://agda.github.io/agda-stdlib/
 [TypeTopology]:           https://martinescardo.github.io/TypeTopology/
