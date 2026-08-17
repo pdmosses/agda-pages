@@ -84,11 +84,11 @@ Agda-Pages has been tested with the software versions listed below.
 -   [Agda] (2.8.0)
 -   [Awesome-nav] (3.3.0)
 -   [GNU Make] (3.81)
--   [Material for MkDocs] (9.7.6)
+-   [Material for MkDocs] (9.7.7)
 -   [mike] (2.0.0)
 -   [MkDocs] (1.6.1)
--   [pip] (26.0.1)
--   [Python 3] (3.14.0)
+-   [pip] (26.2.1)
+-   [Python 3] (3.14.7)
 -   [sd] (1.0.0)
 
 The Agda-Pages shell script `dependencies.sh` checks that the above software is
