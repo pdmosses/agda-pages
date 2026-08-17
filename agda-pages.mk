@@ -408,7 +408,7 @@ serve:
 
 ifndef VERSION
 deploy:
-	@if ! type -P mike || [ -z "$$(mike list)" ]; then \
+	@if ! command -v mike >/dev/null 2>&1 || [ -z "$$(mike list)" ]; then \
 	    $(MKDOCS) gh-deploy --force --ignore-version; \
 	else \
 	    echo "Error: unversioned deployment blocked."; \
