@@ -21,9 +21,9 @@ git submodule update --remote
 
 ----
 
-## [Unreleased]
+## [Unreleased] – 2026-08-17
 
-No code updates.
+- Fix non-POSIX-compatible use of `type` in `agda-pages.mk`
 
 ----
 
