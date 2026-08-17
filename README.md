@@ -85,7 +85,7 @@ Agda-Pages has been tested with the software versions listed below.
 -   [Awesome-nav] (3.3.0)
 -   [GNU Make] (3.81)
 -   [Material for MkDocs] (9.7.7)
--   [mike] (2.0.0)
+-   [mike] (2.2.0)
 -   [MkDocs] (1.6.1)
 -   [pip] (26.2.1)
 -   [Python 3] (3.14.7)
