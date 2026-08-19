@@ -1,7 +1,7 @@
 # https://github.com/pdmosses/agda2pages/mkdocs.inherit.yml
 #
 # This file provides some general configuration settings for websites using the
-# Material for MkDocs theme (https://squidfunk.github.io/mkdocs-material/).
+# MaterialX theme (https://jaywhj.github.io/mkdocs-materialx/).
 
 # To inherit these settings in mkdocs.yml, prepend to that file:
 #
@@ -35,7 +35,7 @@
 
 theme:
 
-  name: material
+  name: materialx
 
   # Use local system fonts (instead of Google fonts such as Roboto):
 

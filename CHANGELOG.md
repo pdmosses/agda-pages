@@ -21,9 +21,24 @@ git submodule update --remote
 
 ----
 
-## [Unreleased] – 2026-08-17
+## [Unreleased] – 2026-08-19
 
-- Fix non-POSIX-compatible use of `type` in `agda-pages.mk`
+### Changed
+
+> [!IMPORTANT]
+> **BREAKING CHANGE!**
+
+-   Use theme *MaterialX* with *MkDocs*
+-   Remove redundant feature `navigation.top`
+-   Update dependencies
+
+### Deprecated
+
+-   Theme *Material for MkDocs*
+
+### Fixed
+
+-   Non-POSIX-compatible use of `type` in `agda-pages.mk`
 
 ----
 
