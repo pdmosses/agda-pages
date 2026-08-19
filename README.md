@@ -35,7 +35,6 @@ The remaining files document the installation and use of Agda-Pages:
 To serve the [Agda-Pages] doc website locally:
 
 ```sh
-export NO_MKDOCS_2_WARNING=1 
 mkdocs serve --livereload --dev-addr localhost:8001
 ```
 
@@ -44,6 +43,9 @@ To deploy the [Agda-Pages] doc website to GitHub Pages:
 ```sh
 mkdocs gh-deploy
 ```
+
+> [!NOTE]
+> gh-deploy calls `ghp_import`, but does not support its `prefix` option 
 
 ## Installation
 
@@ -84,7 +86,7 @@ Agda-Pages has been tested with the software versions listed below.
 -   [Agda] (2.8.0)
 -   [Awesome-nav] (3.3.0)
 -   [GNU Make] (3.81)
--   [Material for MkDocs] (9.7.7)
+-   [MaterialX] (10.2.0)
 -   [mike] (2.2.0)
 -   [MkDocs] (1.6.1)
 -   [pip] (26.2.1)
@@ -97,7 +99,7 @@ generated websites, or lead to errors.
 
 ## Platform dependencies
 
-Agda Pages is intended for use on any Unix-like system. It has been developed
+Agda-Pages is intended for use on any Unix-like system. It has been developed
 on MacBook laptops with Apple M1 and M3 chips running macOS Tahoe (26.5) with
 CLI Tools.
 
