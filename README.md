@@ -20,7 +20,7 @@ To generate a website from Agda code, Agda-Pages requires installation of
 the following files:
 
 -   `javascripts/*.js`: Javascript files for Agda highlighting and [KaTeX]
--   `overrides/partials/path.html`: customization of Material for MkDocs theme
+-   `overrides/partials/path.html`: customization of MaterialX theme
 -   `stylesheets/*.css`: CSS files for Agda code highlighting
 -   `agda-pages.mk`: make-commands for website generation and deployment
 -   `agda-pages.yml`: a partial configuration file for generated websites
@@ -32,16 +32,17 @@ The remaining files document the installation and use of Agda-Pages:
 -   `dependencies.sh`: a shell script to report installed package versions
 -   `skip.txt`: a URL pattern for [linkcheck] to ignore
 
-To serve the [Agda-Pages] doc website locally:
+To serve the [Agda-Pages] doc website locally at port 8001:
 
 ```sh
-mkdocs serve --livereload --dev-addr localhost:8001
+cd agda-pages-doc
+properdocs serve --dev-addr localhost:8001
 ```
 
 To deploy the [Agda-Pages] doc website to GitHub Pages:
 
 ```sh
-mkdocs gh-deploy
+properdocs gh-deploy
 ```
 
 > [!NOTE]
@@ -88,8 +89,8 @@ Agda-Pages has been tested with the software versions listed below.
 -   [GNU Make] (3.81)
 -   [MaterialX] (10.2.0)
 -   [mike] (2.2.0)
--   [MkDocs] (1.6.1)
 -   [pip] (26.2.1)
+-   [ProperDocs] (1.6.7)
 -   [Python 3] (3.14.7)
 -   [sd] (1.0.0)
 
@@ -134,9 +135,9 @@ Peter Mosses
 [GNU Make]:              https://www.gnu.org/software/make/manual/make.html
 [KaTeX]:                 https://katex.org
 [linkcheck]:             https://github.com/filiph/linkcheck/
-[Material for MkDocs]:   https://squidfunk.github.io/mkdocs-material/getting-started/
+[MaterialX]:             https://jaywhj.github.io/mkdocs-materialx/
 [mike]:                  https://github.com/jimporter/mike/
-[MkDocs]:                https://www.mkdocs.org/getting-started/
+[ProperDocs]:            https://properdocs.org
 [pip]:                   https://pypi.org/project/pip/
 [Python 3]:              https://www.python.org/downloads/
 [sd]:                    https://github.com/chmln/sd/
