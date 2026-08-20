@@ -27,7 +27,7 @@ The [Agda-Pages Demo] repository is organized as follows:
     │   │  └─ index.md
     │   └─ index.md
     ├─  Makefile
-    └─  mkdocs.yml
+    └─  properdocs.yml
 ```
 
 ### Agda code directory
@@ -36,7 +36,7 @@ Your Agda code can be in multiple directories (including your repository root
 directory). You configure their location in your `Makefile`. The default
 location is a sibling directory of your `Makefile` named `agda`.
 
-!!! warning
+!!! info
 
     A top-level Agda module named *either* `index` *or* `README`
     generates the **home page** for the website!
@@ -54,7 +54,7 @@ To generate webpages listing your Agda code, Agda-Pages requires a
 demo repository).
 
 The pages directory should contain a directory `docs`, a `Makefile`, and a
-`mkdocs.yml` website configuration file; you cannot configure these names.
+`properdocs.yml` website configuration file; you cannot configure these names.
 The contents are explained below.
 
 The pages directory is also the default location for the `agda-pages` submodule
@@ -72,7 +72,7 @@ the `docs` directory to contain a Markdown source file for your home page,
 named *either* `index.md` *or* `README.md`.[^1]
 
 [^1]:
-    The website builder used by Agda-Pages (MkDocs) treats `index.md` and
+    The website builder used by Agda-Pages ([ProperDocs]) treats `index.md` and
     `README.md` as equivalent source files for the webpage `index.html`.
     If both an `index.md` file and a `README.md` file are found in the same
     directory, then the `index.md` file is used and the `README.md` file is
@@ -92,7 +92,7 @@ Markdown files with generated files. For example, the demo repository contains
 assuming that the imported library modules do not include a module named
 `Library` or `Library.index`!
 
-!!! warning
+!!! info
 
     All files in the `docs` directory other than Markdown source files are
     included in the generated website.
@@ -141,13 +141,13 @@ to avoid their removal during website generation. A glob pattern such as
 `docs/.../*.md` protects all the files in a subdirectory `...` of the `docs`
 directory.
 
-### `mkdocs.yml`
+### `properdocs.yml`
 
 This file has to be a sibling of `docs`. *After* inheriting `agda-pages.yml`
 from the `agda-pages` directory, it should specify the `site_name` of the
 website; it may also specify the `site_url`, `repo_name`, and `repo_url`. 
 
-For example, the `mkdocs.yml` in the demo repository is:
+For example, the `properdocs.yml` in the demo repository is:
 
 ```yaml
 INHERIT:   agda-pages/agda-pages.yml
@@ -158,8 +158,8 @@ repo_name: agda-pages-demo
 repo_url:  https://github.com/pdmosses/agda-pages-demo
 ```
 
-The `mkdocs.yml` may also extend or override the values of keys specified
-in the inherited `agda-pages` file, such as the default list of theme
+The `properdocs.yml` file may also extend or override the values of keys
+specified in the inherited `agda-pages` file, such as the default list of theme
 features (see the [Features] section).
 
 ### `.nav.yml`
@@ -172,4 +172,5 @@ explanations of further possibilities.
 
 [Agda-Pages Demo]: https://github.com/pdmosses/agda-pages/
 [Features]:        Features.md
+[ProperDocs]:      https://properdocs.org
 [Awesome-nav]:     https://lukasgeiter.github.io/mkdocs-awesome-nav/

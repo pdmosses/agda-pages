@@ -61,7 +61,7 @@ make list-versions
 endef
 
 # N.B. Before using `make start-versioning`, add the following lines
-# in mkdocs.yml:
+# in properdocs.yml:
 #
 # extra:
 #   version:
@@ -100,7 +100,7 @@ SD         ?= sd
 # VERSION is an optional argument of some versioning commands (no default).
 
 # All files in the docs directory are rendered in the generated website
-# (except for docs/.* files and files explicitly excluded in mkdocs.yml).
+# (except for docs/.* files and files explicitly excluded in properdocs.yml).
 
 # Specify top-level navigation links in docs/.nav.yml. The hierarchy in
 # navigation sections specified by paths `.../*` is automatically generated
@@ -155,9 +155,9 @@ AGDA := agda $(addprefix --include-path=, $(SOURCES))
 AGDA-QUIET   := $(AGDA) --trace-imports=0
 AGDA-VERBOSE := $(AGDA) --trace-imports=3
 
-# Suppress mkdocs warning about breaking changes in v2:
+# properdocs is an updated version of mkdocs:
 
-MKDOCS := NO_MKDOCS_2_WARNING=1 mkdocs
+PROPERDOCS := properdocs
 
 ##############################################################################
 # CHECK THE AGDA SOURCE MODULES
@@ -216,7 +216,7 @@ check:
 # The files are generated in a fresh temp directory. To produce the intended
 # navigation, the file generated for module M1. ... .Mn in temp needs to be
 # renamed to MD/M1/.../Mn/index.md or MD/M1/.../Mn.md, depending on whether
-# the navigation.sections feature is enabled, resp. disabled, in mkdocs.yml.
+# the navigation.sections feature is enabled, resp. disabled, in properdocs.yml.
 
 # Assumption: For all M, module M and module M.index do not both exist
 # (because the generated pages would have the same URL: .../M/).
@@ -395,7 +395,7 @@ serve:
 	    echo "Serving abandoned"; \
 	    exit 1; \
 	fi
-	@$(MKDOCS) serve --livereload --dev-addr localhost:$(SERVER)
+	@$(PROPERDOCS) serve --livereload --dev-addr localhost:$(SERVER)
 
 ##############################################################################
 # DEPLOY AN UNVERSIONED WEBSITE
@@ -409,7 +409,7 @@ serve:
 ifndef VERSION
 deploy:
 	@if ! command -v mike >/dev/null 2>&1 || [ -z "$$(mike list)" ]; then \
-	    $(MKDOCS) gh-deploy --force --ignore-version; \
+	    $(PROPERDOCS) gh-deploy --force --ignore-version; \
 	else \
 	    echo "Error: unversioned deployment blocked."; \
 	    echo "To deploy an update to version ..., use 'make deploy VERSION=...'."; \
@@ -419,7 +419,7 @@ endif
 
 # `make deploy VERSION=...` is defined differently (see below).
 
-# Note: `mkdocs gh-deploy --ignore-version` allows the version of `mkdocs`
+# Note: `properdocs gh-deploy --ignore-version` allows the version of `properdocs`
 # to differ from the previous deployment. It is unrelated to website versions.
 
 ##############################################################################
@@ -474,7 +474,7 @@ clean-all: clean
 # To completely clear a *versioned* site, use `mike delete --all --push`.
 
 # N.B. Before running `make start-versioning`, check that `mike` is installed,
-# and uncomment the following lines in mkdocs.yml:
+# and uncomment the following lines in properdocs.yml:
 #
 # extra:
 #   version:

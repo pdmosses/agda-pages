@@ -1,16 +1,16 @@
-# https://github.com/pdmosses/agda2pages/mkdocs.inherit.yml
+# https://github.com/pdmosses/agda2pages/agda-pages.yml
 #
 # This file provides some general configuration settings for websites using the
 # MaterialX theme (https://jaywhj.github.io/mkdocs-materialx/).
 
-# To inherit these settings in mkdocs.yml, prepend to that file:
+# To inherit these settings in properdocs.yml, prepend to that file:
 #
-# INHERIT: relative-path-to-this-file/mkdocs.inherit.yml
+# INHERIT: relative-path-to-this-file/agda-pages.yml
 #
 # You can then extend or override the settings for individual keys – see
-# https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance
+# https://properdocs.org/user-guide/configuration/#configuration-inheritance
 
-# Set a site_name in mkdocs.yml, e.g.:
+# Set a site_name in properdocs.yml, e.g.:
 #
 # site_name: Example-Site
 #
@@ -23,7 +23,7 @@
 # To deploy a versioned website:
 #
 # - Install `mike` from https://github.com/jimporter/mike/
-# - Append the following setting to mkdocs.yml:
+# - Append the following setting to properdocs.yml:
 #
 # extra:
 #   version:
@@ -64,7 +64,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to system preference
 
-  features: # Default list, copied from mkdocs.features.yml
+  features: # Default list, copied from agda-pages-features.yml
 
     - content.code.copy
     # - navigation.expand     # unsuitable for large sites
@@ -131,7 +131,7 @@ markdown_extensions:
   tables: {}
   pymdownx.tilde: {}
 
-# The inheriting mkdocs.yml can extend or override the values of the above keys,
+# The inheriting properdocs.yml can extend or override the values of the above keys,
 # but removing keys requires overriding the entire markdown_extensions list.
 
 plugins:

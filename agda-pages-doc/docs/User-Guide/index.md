@@ -3,7 +3,7 @@
 This section explains how to use Agda-Pages to generate and publish a website
 with highlighted listings of your (plain and/or literate) Agda source files.
 
-!!! warning
+!!! danger
 
     Web pages are generated from plain Agda and literate **LaTeX**
     (`*.lagda`, `*.lagda.tex`) or **Markdown** (`*.lagda.md`) Agda.

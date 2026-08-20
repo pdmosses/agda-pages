@@ -1,7 +1,7 @@
 # Generation
 
 All `make` commands are to be run from the directory that contains
-`mkdocs.yml`, `docs`, and your `Makefile`.
+`properdocs.yml`, `docs`, and your `Makefile`.
 
 To check your Agda code, generate/update your local website,
 and browse[^1] a preview of your website locally, run:
@@ -19,10 +19,10 @@ make deploy
 ```
 
 [^1]:
-    By default, MkDocs serves the website at `localhost:8000`. You can change
+    By default, ProperDocs serves the website at `localhost:8000`. You can change
     that by setting `SERVER` to a different port number in your Makefile.
 
-MkDocs reports any broken internal links when serving or deploying the website.
+ProperDocs reports any broken internal links when serving or deploying the website.
 You can also check *before* deploying that all internal and external links are
 valid by installing [linkcheck], serving your website locally, and running:
 
@@ -53,7 +53,7 @@ The Agda-Pages repository provides `skip.txt` to use as a default skip-file.
 ## Versioning
 
 The [mike] utility makes it easy to deploy multiple versions of your website.
-It is enabled by the following setting in `mkdocs.yml`:
+It is enabled by the following setting in `properdocs.yml`:
 
 ```yaml
 extra:
@@ -85,7 +85,7 @@ For further version management commands, see the [mike] documentation.
 | `make delete  VERSION=...` | remove deployed version `...`            |
 | `make list-versions`       | display a list of all deployed versions  |
 
-!!! warning
+!!! danger
 
     ***Deleting the `default` version can break existing links to your website!***
 
@@ -104,6 +104,6 @@ For further version management commands, see the [mike] documentation.
 
     `make clean` and `make clean-all` **delete** the local generated website!
 
-[mike]: https://github.com/jimporter/mike/
-[linkcheck]: https://github.com/filiph/linkcheck/
+[mike]:       https://github.com/jimporter/mike/
+[linkcheck]:  https://github.com/filiph/linkcheck/
 [RPC failed]: https://stackoverflow.com/questions/15240815/

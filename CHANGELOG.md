@@ -26,14 +26,16 @@ git submodule update --remote
 ### Changed
 
 > [!IMPORTANT]
-> **BREAKING CHANGE!**
+> **BREAKING CHANGES!**
+> Use *ProperDocs* instead of *MkDocs*
+> Use theme *MaterialX* instead of *Material for MkDocs*
 
--   Use theme *MaterialX* with *MkDocs*
 -   Remove redundant feature `navigation.top`
 -   Update dependencies
 
 ### Deprecated
 
+-   Website builder *MkDocs*
 -   Theme *Material for MkDocs*
 
 ### Fixed
