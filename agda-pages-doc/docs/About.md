@@ -56,7 +56,7 @@ The [Agda-Pages repository] supersedes the Agda-Material template. When it is
 added as a submodule, a simple Git command updates all its files to the latest
 commit.
 
-The websites listed below are being refactored to use Agda-Pages instead
+The websites listed below have already been refactored to use Agda-Pages instead
 of the files copied from the [Agda-Material template].
 
 ### Denotational semantics in Agda
