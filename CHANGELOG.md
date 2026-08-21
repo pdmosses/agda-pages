@@ -21,22 +21,48 @@ git submodule update --remote
 
 ----
 
-## [Unreleased] – 2026-08-19
+## [Unreleased]
 
-### Changed
+No unreleased code updates.
+
+## [0.1.0] – 2026-08-20
 
 > [!IMPORTANT]
 > **BREAKING CHANGES!**
-> Use *ProperDocs* instead of *MkDocs*
-> Use theme *MaterialX* instead of *Material for MkDocs*
 
--   Remove redundant feature `navigation.top`
+*Agda-Pages* has **migrated**:
+
+-   from *MkDocs* to [ProperDocs](https://properdocs.org), and
+-   from *Material for MkDocs* to [MaterialX](https://jaywhj.github.io/mkdocs-materialx/).
+
+For motivation see https://properdocs.org/about/who-we-are/ and
+https://jaywhj.github.io/mkdocs-materialx/differences.html.
+
+### Project migration
+
+To migrate a project from *Agda-Pages* v0.0.1 to v0.1.0:
+
+-   run `pip install mkdocs-materialx` (*not `... properdocs-materialx`!*)
+-   run `pip install properdocs`
+-   rename `mkdocs.yml` to `properdocs.yml`
+-   update the `agda-pages` submodule
+
+You should then be able to regenerate and deploy your website as before.
+See the updated [User Guide](https://pdmosses.github.io/agda-pages/User-Guide/)
+for details.
+
+### Changed
+
+-   Use *ProperDocs* instead of *MkDocs*
+-   Use theme *MaterialX* instead of *Material for MkDocs*
+-   Remove redundant theme feature `navigation.top`
 -   Update dependencies
 
 ### Deprecated
 
 -   Website builder *MkDocs*
 -   Theme *Material for MkDocs*
+-   Theme feature `navigation.top`
 
 ### Fixed
 
@@ -115,3 +141,4 @@ will be used for development, and inherently unstable.
 
 [unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.0.1...HEAD
 [0.0.1]:      https://github.com/pdmosses/agda-pages/releases/tag/v0.0.1
+[0.1.0]:      https://github.com/pdmosses/agda-pages/compare/v0.0.1...v0.1.0
