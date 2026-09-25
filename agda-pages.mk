@@ -614,7 +614,7 @@ $(LAGDA-FILES): Makefile | latex
 latex:
 	@mkdir latex && rm -rf latex/* && cp postprocess-latex.pl latex
 
-latex/%.lagda: %.lagda.md
+latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Use pandoc to transform Markdown to LaTeX, adjusting heading levels:
 	@pandoc -f markdown -t latex --syntax-highlighting=none \
 	    --shift-heading-level-by=$(words $(wordlist 2,10, $(subst /, , $(*D)))) \
