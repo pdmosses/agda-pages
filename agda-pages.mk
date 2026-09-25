@@ -678,7 +678,7 @@ latex/%.tex: latex/%.lagda
 #	When lagda file contains Agda code, use agda to transform it to tex
 #	then use postprocess-latex to fix arguments of \AgdaRef commands,
 #	otherwise simply copy the lagda file to a tex file:
-	@if grep -q '^\begin{code}` $< ; then \
+	@if grep -q '^\begin{code}' $< ; then \
 	    $(LAGDA-QUIET) --latex --latex-dir=latex $< ; \
 	    perl postprocess-latex.pl $@ > $@.processed ; \
 	    mv $@.processed $@ ; \
