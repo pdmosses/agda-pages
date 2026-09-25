@@ -589,14 +589,17 @@ endef
 ##############################################################################
 # GENERATE LAGDA AND LATEX FROM LAGDA.MD
 
+# ASSUMPTION: SOURCES is a single word
+
 # For each *.lagda.md file, a *.lagda and a *.tex file are generated in latex
 
 LAGDA-MD-FILES := \
 	$(sort \
-	  $(foreach d, $(SOURCES), \
-	    $(shell find $d -name '*.lagda.md')))
+	  $(shell find $(SOURCES) -name '*.lagda.md'))
 
-LAGDA-FILES := $(addprefix latex/, $(patsubst %.lagda.md,%.lagda, $(LAGDA-MD-FILES)))
+LAGDA-FILES := \
+	$(addprefix latex/, \
+	  $(patsubst $(SOURCES)/%.lagda.md,%.lagda, $(LAGDA-MD-FILES)))
 
 LATEX-FILES := $(LAGDA-FILES:.lagda=.tex)
 
