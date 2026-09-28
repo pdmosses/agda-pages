@@ -612,7 +612,9 @@ gen-lagda: $(LAGDA-FILES)
 $(LAGDA-FILES): Makefile | latex
 
 latex:
-	@mkdir latex && rm -rf latex/* && cp postprocess-latex.pl latex
+	@mkdir latex && \
+	cp $(AGDA-PAGES)/postprocess-latex.pl latex && \
+	printf "%s\n"  '*' > latex/.gitignore
 
 latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Use pandoc to transform Markdown to LaTeX, adjusting heading levels:
@@ -680,7 +682,7 @@ latex/%.tex: latex/%.lagda
 #	otherwise simply copy the lagda file to a tex file:
 	@if grep -q '^\begin{code}' $< ; then \
 	    $(LAGDA-QUIET) --latex --latex-dir=latex $< ; \
-	    perl postprocess-latex.pl $@ > $@.processed ; \
+	    perl latex/postprocess-latex.pl $@ > $@.processed ; \
 	    mv $@.processed $@ ; \
 	else \
 	    cp $< $@ ; \
