@@ -619,7 +619,7 @@ latex:
 latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Use pandoc to transform Markdown to LaTeX, adjusting heading levels:
 	@pandoc -f markdown -t latex --syntax-highlighting=none \
-	    --shift-heading-level-by=$(words $(wordlist 2,10, $(subst /, , $(*D)))) \
+	    --shift-heading-level-by=$(words $(wordlist 3,10, $(subst /, , ./$(*)))) \
 	    -o $@ $<
 #	Pandoc transforms ```agda...``` to a verbatim environment:
 	@sd '\\begin\{verbatim\}' '\\begin{code}' $@
@@ -663,7 +663,7 @@ latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Delete @latex and @/latex:
 	@sd '@[/]?latex' '' $@
 
-LAGDA := agda $(addprefix --include-path=, $(addprefix latex/, $(SOURCES)))
+LAGDA := agda --include-path=latex
 
 LAGDA-QUIET   := $(LAGDA) --trace-imports=0
 LAGDA-VERBOSE := $(LAGDA) --trace-imports=3
@@ -680,7 +680,7 @@ latex/%.tex: latex/%.lagda
 #	When lagda file contains Agda code, use agda to transform it to tex
 #	then use postprocess-latex to fix arguments of \AgdaRef commands,
 #	otherwise simply copy the lagda file to a tex file:
-	@if grep -q '^\begin{code}' $< ; then \
+	@if grep -q '^\\begin{code}' $< ; then \
 	    $(LAGDA-QUIET) --latex --latex-dir=latex $< ; \
 	    perl latex/postprocess-latex.pl $@ > $@.processed ; \
 	    mv $@.processed $@ ; \
