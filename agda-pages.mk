@@ -373,6 +373,7 @@ web: clean
 
 	@printf "%s\n" \
 	    '/.gitignore' \
+	    '/latex/' \
 	    '/site/' \
 	    '/temp/' \
 	    '/overrides/partials/path.html' \
@@ -614,8 +615,7 @@ $(LAGDA-FILES): Makefile | latex
 latex:
 	@mkdir latex && \
 	cp $(AGDA-PAGES)/postprocess-latex.pl latex && \
-	cp $(SOURCES)/*.agda-lib latex && \
-	printf "%s\n"  '*' > latex/.gitignore
+	cp $(SOURCES)/*.agda-lib latex
 
 latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Use pandoc to transform Markdown to LaTeX, adjusting heading levels:
