@@ -614,6 +614,7 @@ $(LAGDA-FILES): Makefile | latex
 latex:
 	@mkdir latex && \
 	cp $(AGDA-PAGES)/postprocess-latex.pl latex && \
+	cp $(SOURCES)/*.agda-lib latex && \
 	printf "%s\n"  '*' > latex/.gitignore
 
 latex/%.lagda: $(SOURCES)/%.lagda.md
@@ -627,7 +628,7 @@ latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Pandoc transforms `...` to \texttt{...}:
 	@sd '\\texttt\{' '\\AgdaRef{' $@
 #	Pandoc doesn't support label prefixes:
-	@sd '\\label\{' '\label{$(patsubst agda/%,%, $(*D)/$(*F))-' $@
+	@sd '\\label\{' '\label{$(*)-' $@
 #	Transform [(bibkey)] references to \cite{bibkey}:
 	@sd '\\href\{https://[^\{\}]*\}\{\(([^ ()]*)\)\}' \
 	    '\cite{$$1}' $@
