@@ -628,26 +628,26 @@ latex/%.lagda: $(SOURCES)/%.lagda.md
 #	Pandoc transforms `...` to \texttt{...}:
 	@sd '\\texttt\{' '\\AgdaRef{' $@
 #	Pandoc doesn't support label prefixes:
-	@sd '\\label\{' '\label{$(*)-' $@
+	@sd '\\label\{' '\\label{$(*)-' $@
 #	Transform [(bibkey)] references to \cite{bibkey}:
 	@sd '\\href\{https://[^\{\}]*\}\{\(([^ ()]*)\)\}' \
-	    '\cite{$$1}' $@
+	    '\\cite{$$1}' $@
 #	Transform \cite{bibkey1}~...~\cite{bibkeyN} to \cite{bibkey1,...,bibkeyN}:
 	@sd '\}~\\cite\{' ',' $@
-#	Transform references to relative URLs to link to generated website:
-#	[§ ...] -> Section~\ref{...} '||`
+#	Transform references to relative URLs to Section references:
+#	[§ ...] -> Section~\ref{...}
 	@sd '\\href\{(\.\./)*([^:\{\}]*)/index\.md\\#([^\{\}]*)\}\{§ ([^\{\}]*)\}' \
-	    'Section~\ref{$$2-$$3}\,\href{https://pdmosses.github.io/mfps2026-agda/$$2/\#$$3}{$$\Uparrow$$}' \
+	    'Section~\\ref{$$2-$$3}' \
 	    $@
 	@sd '\\href\{(\.\./)*([^:\{\}]*)\.md\\#([^\{\}]*)\}\{§ ([^\{\}]*)\}' \
-	    'Section~\ref{$$2-$$3}\,\href{https://pdmosses.github.io/mfps2026-agda/$$2/\#$$3}{$$\Uparrow$$}' \
+	    'Section~\\ref{$$2-$$3}' \
 	    $@
-#	[...] -> ... (Section~\ref{...} '||`)
+#	[...] -> ... (Section~\ref{...})
 	@sd '\\href\{(\.\./)*([^:\{\}]*)/index\.md\\#([^\{\}]*)\}\{([^\{\}]*)\}' \
-	    '$$4 (Section~\ref{$$2-$$3}\,\href{https://pdmosses.github.io/mfps2026-agda/$$2/\#$$3}{$$\Uparrow$$})' \
+	    '$$4 (Section~\\ref{$$2-$$3})' \
 	    $@
 	@sd '\\href\{(\.\./)*([^:\{\}]*)\.md\\#([^\{\}]*)\}\{([^\{\}]*)\}' \
-	    '$$4 (Section~\ref{$$2-$$3}\,\href{https://pdmosses.github.io/mfps2026-agda/$$2/\#$$3}{$$\Uparrow$$})' \
+	    '$$4 (Section~\\ref{$$2-$$3})' \
 	    $@
 	@sd '\\begin\{code\}' "\\\\begin{AgdaSuppressSpace}\n\\\\begin{code}" $@
 	@sd '\\end\{code\}' "\\\\end{code}\n\\\\end{AgdaSuppressSpace}" $@
