@@ -672,7 +672,7 @@ LAGDA-VERBOSE := $(LAGDA) --trace-imports=3
 # `make gen-latex` generates *.tex files from *.lagda files using agda and perl
 
 .PHONY: gen-latex
-gen-latex: $(LATEX-FILES)
+gen-latex: clean-latex gen-lagda $(LATEX-FILES)
 	@echo "Generated .tex files in latex"
 
 $(LATEX-FILES): Makefile | latex
