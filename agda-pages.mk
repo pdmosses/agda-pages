@@ -77,6 +77,9 @@ endef
 # Non-generated webpage source files, separated by spaces (no default):
 # PROTECT := 
 
+# Command to run agda
+AGDA ?= agda
+
 # Relative path to the agda-pages directory:
 AGDA-PAGES ?= agda-pages
 
@@ -92,6 +95,7 @@ INDEXES    ?= true
 # To serve the website at localhost:$(SERVER):
 SERVER     ?= 8000
 
+# Command to run sd:
 # For sd v1.0.0:
 SD         ?= sd
 # For sd v1.1.0 (breaking change):
@@ -147,13 +151,13 @@ ROOT-FILES := $(strip \
 
 # Agda requires each include-path to be a separate option:
 
-AGDA := agda $(addprefix --include-path=, $(SOURCES))
+AGDA-INCLUDE := $(AGDA) $(addprefix --include-path=, $(SOURCES))
 
 # AGDA-QUIET does not print any messages about loading imported modules:
 # AGDA-VERBOSE reports loading imported modules, and the location of errors:
 
-AGDA-QUIET   := $(AGDA) --trace-imports=0
-AGDA-VERBOSE := $(AGDA) --trace-imports=3
+AGDA-QUIET   := $(AGDA-INCLUDE) --trace-imports=0
+AGDA-VERBOSE := $(AGDA-INCLUDE) --trace-imports=3
 
 # properdocs is an updated version of mkdocs:
 

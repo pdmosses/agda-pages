@@ -92,10 +92,10 @@ latex/%.lagda: $(SOURCES)/%.lagda.md
 ##############################################################################
 # GENERATE LATEX FROM LAGDA.MD
 
-LAGDA := agda --include-path=latex
+LAGDA-INCLUDE := $(AGDA) --include-path=latex
 
-LAGDA-QUIET   := $(LAGDA) --trace-imports=0
-LAGDA-VERBOSE := $(LAGDA) --trace-imports=3
+LAGDA-QUIET   := $(LAGDA-INCLUDE) --trace-imports=0
+LAGDA-VERBOSE := $(LAGDA-INCLUDE) --trace-imports=3
 
 LATEX-FILES := $(LAGDA-FILES:.lagda=.tex)
 

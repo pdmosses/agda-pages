@@ -23,7 +23,10 @@ git submodule update --remote
 
 ## [Unreleased]
 
-No unreleased code updates.
+### Added
+
+-   `make gen-latex` to generate `*.lagda` and `*.tex` files from `*.lagda.md` code
+-   `AGDA := ...` in Makefile to set command to run Agda (default: `agda`)
 
 ## [0.1.0] – 2026-08-20
 
