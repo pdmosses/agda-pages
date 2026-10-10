@@ -110,12 +110,19 @@ $(LATEX-FILES): Makefile | latex
 
 latex/%.tex: latex/%.lagda
 #	When lagda file contains Agda code, use agda to transform it to tex
-#	then use postprocess-latex to fix arguments of \AgdaRef commands,
+#	then use postprocess-latex to fix arguments of \AgdaRef commands
+#	an patch record links,
 #	otherwise simply copy the lagda file to a tex file:
 	@if grep -q '^\\begin{code}' $< ; then \
 	    $(LAGDA-QUIET) --latex --latex-dir=latex $< ; \
 	    perl latex/postprocess-latex.pl $@ > $@.processed ; \
 	    mv $@.processed $@ ; \
+	    if grep -q '\AgdaRecord{Eq}%' $@ ; then \
+	        sd -s '\AgdaModule{Eq}%' '\AgdaRecord{Eq}%' $@ ; \
+	    fi ; \
+	    if grep -q '\AgdaRecord{MaybeEq}%' $@ ; then \
+	        sd -s '\AgdaModule{MaybeEq}%' '\AgdaRecord{MaybeEq}%' $@ ; \
+	    fi ; \
 	else \
 	    cp $< $@ ; \
 	fi
