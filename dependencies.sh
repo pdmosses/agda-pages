@@ -1,4 +1,4 @@
-# Script to report versions of all agda-pages software depedencies
+# Shell script to report versions of all agda-pages software depedencies
 
 print_and_exec(){
   printf "\n%s: %s %s\n\n" "$1" "$2" "($3)"
