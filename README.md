@@ -35,14 +35,15 @@ The remaining files document the installation and use of Agda-Pages:
 -   `README.md`: this file
 -   `skip.txt`: a URL pattern for [linkcheck] to ignore
 
-To serve the [Agda-Pages] website locally at port 8000:
+To serve the [Agda-Pages] documentation website locally at port 8000:
 
 ```sh
 cd agda-pages-doc
-properdocs serve
+properdocs serve --livereload --open
 ```
 
-To deploy the [Agda-Pages] website to GitHub Pages:
+Agda-Pages maintainers can also deploy the [Agda-Pages] documentation website
+to GitHub Pages:
 
 ```sh
 properdocs gh-deploy
@@ -77,8 +78,19 @@ execute the following command in *your repository root directory*:
 git submodule update --remote
 ```
 
-(An alternative to adding Agda-Pages as a submodule is to copy the required
-files manually.)
+If you subsequently clone your repository, the submodule needs to be initialised:
+
+```sh
+git submodule update --init --recursive
+```
+
+> [!TIP]
+> If you clone the repository using [GitHub Desktop], it will automatically initialise
+> all the submodules associated with the repository.
+
+An alternative to adding Agda-Pages as a submodule is to copy the required
+files manually. However, upgrading to a new release of Agda-Pages may then
+be more tedious and error-prone.
 
 ## Software dependencies
 
@@ -95,8 +107,10 @@ Agda-Pages has been tested with the software versions listed below.
 -   [sd] (1.0.0)
 
 The Agda-Pages shell script `dependencies.sh` checks that the above software is
-installed, and reports all the versions. Use of different versions might affect
-generated websites, or lead to errors.
+installed, and reports all the versions.
+
+> [!CAUTION]
+> Use of different software versions might affect generated websites, or lead to errors.
 
 ## Platform dependencies
 
@@ -128,14 +142,16 @@ Peter Mosses
 [pdmosses.github.io]:    https://pdmosses.github.io
 
 [Agda-Pages]:            https://pdmosses.github.io/agda-pages/
+[Agda-Pages Demo]:       https://pdmosses.github.io/agda-pages-demo/
+
 [Agda-Pages Repository]: https://github.com/pdmosses/agda-pages/
 [Discussions]:           https://github.com/pdmosses/agda-pages/discussions/
 [Issues]:                https://github.com/pdmosses/agda-pages/issues/
 [Pull requests]:         https://github.com/pdmosses/agda-pages/pulls/
-[Agda-Pages Demo]:       https://pdmosses.github.io/agda-pages-demo/
 
 [Agda]:                  https://agda.readthedocs.io/en/stable/getting-started/index.html
 [Awesome-nav]:           https://lukasgeiter.github.io/mkdocs-awesome-nav/
+[GitHub Desktop]:        https://github.com/apps/desktop/
 [GitHub Pages]:          https://pages.github.com
 [GNU Make]:              https://www.gnu.org/software/make/manual/make.html
 [KaTeX]:                 https://katex.org

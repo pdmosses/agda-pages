@@ -33,18 +33,20 @@ The [Agda-Pages Demo] repository is organized as follows:
 ### Agda code directory
 
 Your Agda code can be in multiple directories (including your repository root
-directory). You configure their location in your `Makefile`. The default
-location is a sibling directory of your `Makefile` named `agda`.
+directory). You configure their location in your `Makefile`.
+
+The default code location is a sibling directory of your `Makefile` named `agda`.
+In the demo repository, all the Agda code is in the root subdirectory `agda/`,
+so its location is specified as `../agda` in the `Makefile`.
 
 !!! info
 
     A top-level Agda module named *either* `index` *or* `README`
     generates the **home page** for the website!
 
-In the demo repository, all the Agda code is in the subdirectory `agda/Demo`,
-and the name of the module in `agda/Demo/index.lagda.md` is `Demo.index`; the
-source file for the demo website home page is the ordinary Markdown file
-`pages/docs/index.md`.
+In the demo repository, the name of the module in `agda/Demo/index.lagda.md`
+is `Demo.index`; the source file for the demo website home page is the
+ordinary Markdown file `pages/docs/index.md`.
 
 ### Pages directory
 
@@ -89,7 +91,7 @@ are not generated from your Agda code. The paths of such Markdown files
 (relative to the Agda code directory), to avoid the risk of overwriting your
 Markdown files with generated files. For example, the demo repository contains
 `pages/docs/Library/index.md` (to generate a webpage at the URL `Library/`)
-assuming that the imported library modules do not include a module named
+– assuming that the imported library modules do not include a module named
 `Library` or `Library.index`!
 
 !!! info
@@ -102,7 +104,7 @@ assuming that the imported library modules do not include a module named
 ### `Makefile`
 
 This file has to be a sibling of `docs`. It should set all non-default argument
-values before including `agda-pages.mk` from the `agda-pages` directory.
+values *before* including `agda-pages.mk` from the `agda-pages` directory.
 
 For example, the `Makefile` in the demo repository is:
 
@@ -118,21 +120,24 @@ The full list of arguments and their default values is as follows.
 
 argument     | default      | interpretation
 ------------ | ------------ | --------------------------------------------------
+`AGDA`       | `agda`       | the command to execute the Agda binary
 `AGDA-PAGES` | `agda-pages` | path to the `agda-pages` submodule directory
 `SOURCES`    | `agda`       | Agda import include-path(s), separated by spaces
 `MODULES`    | `index`      | Agda root module name(s), separated by spaces
 `PROTECT`    |              | protected file path(s), separated by spaces
 `INDEXES`    | `true`       | linking directory names to `index` pages
 `SERVER`     | `8000`       | `localhost` port for `make serve` 
-`SD`         | `sd`         | for sd v1.0.0; for sd v1.1.0 set `SD := sd -A`
+`SD`         | `sd`         | the command to execute `sd` 
 
 !!! info
 
     The `SD` argument addresses a recent breaking change in `sd v1.1.0`;
-    see the [sd] repository.
+    see the [sd] repository. To use sd v1.1.0, set `SD := sd -A`.
 
-(`VERSION` is an optional argument of some versioning commands, and
-should *not* be set in the `Makefile`.)
+!!! warning
+
+    `VERSION` is an optional argument of some versioning commands, and
+    should *not* be set in the `Makefile`.
 
 The paths in the `Makefile` are relative to the pages directory. 
 

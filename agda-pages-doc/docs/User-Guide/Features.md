@@ -32,6 +32,16 @@ the value of `theme: features` inherited from Agda-Pages: add a copy of
 the [agda-pages-features.yml] to your `properdocs.yml`, then edit your copy.
 See also the MaterialX [configuration template].
 
+The style of the bar at the top of the webpages depends on the value of
+`theme: topbar-style`, which can be `glass`, `primary`, or `accent`.
+The MaterialX default style is `glass`; `agda-pages.yml` sets it to the
+primary colour (`indigo`) of the default palette as follows:
+
+```yaml
+theme:
+  topbar_style: primary
+```
+
 !!! note
 
     ProperDocs does *not* support multiple uses of `INHERIT` in `properdocs.yml`.
