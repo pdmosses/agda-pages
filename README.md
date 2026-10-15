@@ -42,11 +42,24 @@ cd agda-pages-doc
 properdocs serve
 ```
 
-To deploy the [Agda-Pages] website to GitHub Pages:
+To list all deployed versions of the [Agda-Pages] website:
 
 ```sh
-properdocs gh-deploy
+cd agda-pages-doc
+mike list
 ```
+
+To deploy the [Agda-Pages] website to GitHub Pages as the default version `X.Y`:
+
+```sh
+cd agda-pages-doc
+mike deploy X.Y default --update-aliases --push
+```
+
+URLs of the form `https://pdmosses.github.io/agda-pages/X.Y/...` refer to
+the pages of version `X.Y`; replace `X.Y` by `default` to refer to pages
+of the *default* version. The URL `https://pdmosses.github.io/agda-pages/`
+automatically refers to the default version of the home page.
 
 ## Installation
 

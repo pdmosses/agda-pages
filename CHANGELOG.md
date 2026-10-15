@@ -21,9 +21,18 @@ git submodule update --remote
 
 ----
 
-## [Unreleased]
+## [Unreleased] – 2026-10-15
 
 No unreleased code updates.
+
+### Changed
+
+-   [doc] Set the top bar style to indigo
+
+### Versioning
+
+-   [doc] Deploy the current website as version `0.1`
+-   [doc] Prefix logs of documentation changes by `[doc]`
 
 ## [0.1.0] – 2026-08-20
 

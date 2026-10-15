@@ -3,13 +3,19 @@ site_url:  https://pdmosses.github.io/agda-pages/
 repo_name: pdmosses/agda-pages
 repo_url:  https://github.com/pdmosses/agda-pages
 
+extra:
+  version:
+    provider: mike
+
 theme:
 
   name: materialx
 
   # Use local system fonts (instead of Google fonts such as Roboto):
-
   font: false
+
+  # Set topbar background:
+  topbar_style: primary
 
   # Support automatic / light / dark modes:
   palette:
@@ -84,5 +90,6 @@ markdown_extensions:
   - pymdownx.tilde
 
 plugins:
-- search
-- awesome-nav
+  - search
+  - awesome-nav
+  - mike
