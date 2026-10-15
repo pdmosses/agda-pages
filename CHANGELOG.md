@@ -25,7 +25,30 @@ git submodule update --remote
 
 No unreleased code updates.
 
-## [0.1.0] – 2026-08-20
+----
+
+## [0.2.0]: 2026-10-15
+
+### Changed
+
+-   Add `Makefile` argument `AGDA`: the command to execute the Agda binary (default: `agda`)
+-   Add the theme setting for the top bar style to the inherited website build settings
+-   [doc] Update and clarify the User Guide
+-   [doc] Set the top bar style to indigo
+
+### Fixed
+
+-   Replace links to [Material for MkDocs] by links to [MaterialX]
+-   Correct the `font-size` for KaTeX
+
+### Versioning
+
+-   [doc] Deploy the current website as version `0.1`
+-   [doc] Prefix logs of documentation changes by `[doc]`
+
+----
+
+## [0.1.0]: 2026-08-20
 
 > [!IMPORTANT]
 > **BREAKING CHANGES!**
@@ -70,7 +93,7 @@ for details.
 
 ----
 
-## [0.0.1] – 2026-08-16
+## [0.0.1]: 2026-08-16
 
 This is the *initial alpha-release* of Agda-Pages. The following websites
 were generated and deployed using this release:
@@ -136,9 +159,13 @@ the minor version *Y*.
 The `main` branch of the repo may include unreleased changes. A `dev` branch
 will be used for development, and inherently unstable.
 
-[keepachangelog]: https://keepachangelog.com/en/1.1.0/
+[keepachangelog]:      https://keepachangelog.com/en/1.1.0/
 [semantic versioning]: https://semver.org
 
-[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.0.1...HEAD
+[MaterialX]:           https://jaywhj.github.io/mkdocs-materialx/index.html
+[Material for MkDocs]: https://squidfunk.github.io/mkdocs-material/
+
+[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.2.0...HEAD
 [0.0.1]:      https://github.com/pdmosses/agda-pages/releases/tag/v0.0.1
 [0.1.0]:      https://github.com/pdmosses/agda-pages/compare/v0.0.1...v0.1.0
+[0.2.0]:      https://github.com/pdmosses/agda-pages/compare/v0.1.0...v0.2.0
