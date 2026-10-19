@@ -43,7 +43,7 @@ No unreleased code updates.
 
 ### Versioning
 
--   [doc] Deploy the current website as version `0.1`
+-   [doc] Deploy the current website as version `0.2`
 -   [doc] Prefix logs of documentation changes by `[doc]`
 
 ----
