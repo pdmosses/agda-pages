@@ -67,9 +67,9 @@ embeddings have evolved.
 
 ### Agda standard library
 
-The [Agda-StdLib] website is a prototype generated from the same Agda files as
-the official [Standard Library] webiste. Different versions will correspond to
-released versions of the library, and show how the library has evolved.
+The [Agda-StdLib] website is a prototype generated from the HTML files depolyed
+on the official [Standard Library] website. The different versions show how the
+library has evolved.
 
 ### TypeTopology Pages
 

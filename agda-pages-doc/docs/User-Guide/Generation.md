@@ -94,15 +94,16 @@ For further version management commands, see the [mike] documentation.
 
 ## Miscellaneous
 
-| Command          | Effect                                                     |
-| ---------------- | ---------------------------------------------------------- |
-| `make clean`     | remove unprotected configuration-dependent generated files |
-| `make clean-all` | remove all unprotected generated files                     |
-| `make help`      | show explanations of the main targets                      |
+| Command            | Effect                                          |
+| ------------------ | ----------------------------------------------- |
+| `make clean`       | remove `html` and unprotected `docs/*.md` files |
+| `make clean-all`   | remove all generated files                      |
+| `make help`        | show explanations of the main targets           |
 
 !!! warning
 
     `make clean` and `make clean-all` **delete** the local generated website!
+    Regnerate before deploying.
 
 [mike]:       https://github.com/jimporter/mike/
 [linkcheck]:  https://github.com/filiph/linkcheck/
