@@ -27,6 +27,20 @@ No unreleased code updates.
 
 ----
 
+## [0.2.1]: 2026-10-30
+
+This release adds support for webpage generation from HTML files copied from
+other websites. The changes should not affect webpage generation from Agda code.
+
+### Changed
+
+-   Separate the generation of HTML files and their transformation to Markdown
+-   Generate the HTML files in `AGDA-PAGES/html` (was `AGDA-PAGES/temp`)
+-   Refactor the Makefile `agda-pages.mk`
+-   [doc] Update and clarify the User Guide
+
+----
+
 ## [0.2.0]: 2026-10-15
 
 ### Changed
@@ -165,7 +179,8 @@ will be used for development, and inherently unstable.
 [MaterialX]:           https://jaywhj.github.io/mkdocs-materialx/index.html
 [Material for MkDocs]: https://squidfunk.github.io/mkdocs-material/
 
-[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.2.0...HEAD
-[0.0.1]:      https://github.com/pdmosses/agda-pages/releases/tag/v0.0.1
-[0.1.0]:      https://github.com/pdmosses/agda-pages/compare/v0.0.1...v0.1.0
+[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.2.1...HEAD
+[0.2.1]:      https://github.com/pdmosses/agda-pages/compare/v0.2.0...v0.2.1
 [0.2.0]:      https://github.com/pdmosses/agda-pages/compare/v0.1.0...v0.2.0
+[0.1.0]:      https://github.com/pdmosses/agda-pages/compare/v0.0.1...v0.1.0
+[0.0.1]:      https://github.com/pdmosses/agda-pages/releases/tag/v0.0.1
