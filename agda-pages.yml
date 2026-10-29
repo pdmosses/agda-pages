@@ -41,29 +41,28 @@ theme:
   font: false
 
   # The style of the bar at the top can be glass, primary, or accent:
-  topbar_style: primary
+  topbar_style: glass
 
-  # Support automatic / light / dark modes:
+  # Support automatic / light / dark modes, copied from MaterialX website
+  # https://github.com/jaywhj/mkdocs-materialx/blob/main/mkdocs.yml
   palette:
-
-    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/lightbulb-auto
+        icon: material/brightness-auto
         name: Switch to light mode
-
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
+      primary: blue
+      accent: light blue
       toggle:
-        icon: material/lightbulb
+        icon: material/weather-sunny
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: cyan
+      accent: cyan
       toggle:
-        icon: material/lightbulb-outline
+        icon: material/brightness-4
         name: Switch to system preference
 
   features: # Default list, copied from agda-pages-features.yml
