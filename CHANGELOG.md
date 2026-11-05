@@ -27,16 +27,61 @@ No unreleased code updates.
 
 ----
 
-## [0.2.1]: 2026-10-30
+## [0.3.0]: 2026-11-05
 
 This release adds support for webpage generation from HTML files copied from
 other websites. The changes should not affect webpage generation from Agda code.
+
+It also makes some **breaking changes** to webpage styling, aiming to make the
+appearance more harmonious:
+
+-   Use a translucent `glass` style for the top navigation bar
+-   Use purple for links in both light and dark modes
+-   Adjust the icons for toggling between automatic, light, and dark mode
+
+To revert to the previous styling, append the following to `properdocs.yml`:
+
+```yaml
+theme:
+
+  # The style of the bar at the top can be glass, primary, or accent:
+  topbar_style: primary
+
+  # Support automatic / light / dark modes:
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/lightbulb-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to system preference
+```
+
+You can [customise the colors](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors.html)
+of your webpages by making further changes in `properdocs.yml`. 
 
 ### Changed
 
 -   Separate the generation of HTML files and their transformation to Markdown
 -   Generate the HTML files in `AGDA-PAGES/html` (was `AGDA-PAGES/temp`)
 -   Refactor the Makefile `agda-pages.mk`
+-   Update the topbar style to `glass`
+-   Update the primary and accent colors to `purple`
+-   Update the toggle icons
 -   [doc] Update and clarify the User Guide
 
 ----
@@ -179,8 +224,8 @@ will be used for development, and inherently unstable.
 [MaterialX]:           https://jaywhj.github.io/mkdocs-materialx/index.html
 [Material for MkDocs]: https://squidfunk.github.io/mkdocs-material/
 
-[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.2.1...HEAD
-[0.2.1]:      https://github.com/pdmosses/agda-pages/compare/v0.2.0...v0.2.1
+[unreleased]: https://github.com/pdmosses/agda-pages/compare/v0.3.0...HEAD
+[0.3.0]:      https://github.com/pdmosses/agda-pages/compare/v0.2.0...v0.3.0
 [0.2.0]:      https://github.com/pdmosses/agda-pages/compare/v0.1.0...v0.2.0
 [0.1.0]:      https://github.com/pdmosses/agda-pages/compare/v0.0.1...v0.1.0
 [0.0.1]:      https://github.com/pdmosses/agda-pages/releases/tag/v0.0.1

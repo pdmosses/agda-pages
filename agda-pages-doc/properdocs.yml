@@ -27,14 +27,14 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: purple # was: blue
-      accent: purple # was: light blue
+      accent: purple  # was: light blue
       toggle:
         icon: material/brightness-5 # was: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: purple
-      accent: purple
+      primary: purple # was: cyan
+      accent: purple  # was: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to system preference

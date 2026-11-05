@@ -34,12 +34,36 @@ See also the MaterialX [configuration template].
 
 The style of the bar at the top of the webpages depends on the value of
 `theme: topbar-style`, which can be `glass`, `primary`, or `accent`.
-The MaterialX default style is `glass`; `agda-pages.yml` sets it to the
-primary colour (`indigo`) of the default palette as follows:
+The configuration file `agda-pages.yml` sets it to `glass`; it also sets the
+`primary` and `accent` colours, and adjusts the mode toggle icons:
 
 ```yaml
 theme:
-  topbar_style: primary
+
+  # The style of the bar at the top can be glass, primary, or accent:
+  topbar_style: glass
+
+  # Support automatic / light / dark modes, copied from MaterialX website
+  # https://github.com/jaywhj/mkdocs-materialx/blob/main/mkdocs.yml
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple # was: blue
+      accent: purple  # was: light blue
+      toggle:
+        icon: material/brightness-5 # was: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple # was: cyan
+      accent: purple  # was: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 ```
 
 !!! note
