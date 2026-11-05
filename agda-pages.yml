@@ -52,10 +52,10 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: light blue
+      # primary: blue
+      # accent: light blue
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-5 # was: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
