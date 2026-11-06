@@ -27,10 +27,15 @@ No unreleased code updates.
 
 ----
 
-## [0.2.1]: 2026-10-30
+## [0.2.1]: 2026-11-06
 
 This release adds support for webpage generation from HTML files copied from
-other websites. The changes should not affect webpage generation from Agda code.
+other websites. The new command `make gen-pages` generates Markdown files in
+`AGDA-PAGES/docs` from HTML files located in `AGDA-PAGES/html`.
+
+The changes do not affect webpage generation from Agda code: the new command
+`make gen-html` uses Agda to generate HTML files in `AGDA-PAGES/html`,
+and the command `make web` simply combines `gen-html` and `gen-pages.
 
 ### Changed
 
