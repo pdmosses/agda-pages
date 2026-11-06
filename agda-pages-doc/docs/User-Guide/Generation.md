@@ -64,15 +64,16 @@ The Agda-Pages repository provides `skip.txt` to use as a default skip-file.
 | `make gen-html`  | generate HTML pages in `html` from Agda source code |
 
 To generate an Agda-Pages website from existing HTML pages that were previously
-generated using Agda, copy the HTML pages to the `html` directory, then run:
+generated from *plain* Agda source code using Agda, copy the HTML pages to the
+`html` directory, then run:
 
 ```sh
 make gen-pages
 ```
 
 This supports generation of Agda-Pages websites that correspond to old versions
-of Agda libraries, where generation from Agda source code may require installing
-outdated versions of Agda.
+of Agda libraries – generation from the Agda source code might require
+installing an outdated version of Agda.
 
 The `make web` command simply combines `gen-html` with `gen-pages`.
 
