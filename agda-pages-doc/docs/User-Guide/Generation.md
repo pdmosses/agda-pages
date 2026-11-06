@@ -3,8 +3,29 @@
 All `make` commands are to be run from the directory that contains
 `properdocs.yml`, `docs`, and your `Makefile`.
 
-To check your Agda code, generate/update your local website,
+Agda-Pages supports generation of websites from Agda source code.
+It also supports generation of websites from HTML files that were
+previously generated using Agda.
+
+## Generation from Agda
+
+| Command        | Effect                                              |
+| -------------- | --------------------------------------------------- |
+| `make check`   | load the root module(s) and all imported modules    |
+| `make web`     | generate hyperlinked highlighted web pages          |
+| `make serve`   | browse the generated web pages using a local server |
+| `make deploy`  | deploy an *unversioned* website on GitHub Pages[^2] |
+
+[^2]:
+    In case of an [`RPC failed`][RPC failed] error, try running
+    `git config --global http.postBuffer 10g`.
+
+To check your Agda source code, generate/update your local website,
 and browse[^1] a preview of your website locally, run:
+
+[^1]:
+    By default, ProperDocs serves the website at `localhost:8000`. You can change
+    that by setting `SERVER` to a different port number in your Makefile.
 
 ```sh
 make check
@@ -17,10 +38,6 @@ Then to publish the generated website on GitHub Pages, run:
 ```sh
 make deploy
 ```
-
-[^1]:
-    By default, ProperDocs serves the website at `localhost:8000`. You can change
-    that by setting `SERVER` to a different port number in your Makefile.
 
 ProperDocs reports any broken internal links when serving or deploying the website.
 You can also check *before* deploying that all internal and external links are
@@ -39,16 +56,25 @@ should include the line:
 
 The Agda-Pages repository provides `skip.txt` to use as a default skip-file.
 
-| Command        | Effect                                              |
-| -------------- | --------------------------------------------------- |
-| `make check`   | load the root module(s) and all imported modules    |
-| `make web`     | generate hyperlinked highlighted web pages          |
-| `make serve`   | browse the generated web pages using a local server |
-| `make deploy`  | deploy an *unversioned* website on GitHub Pages[^2] |
+## Generation from HTML
 
-[^2]:
-    In case of an [`RPC failed`][RPC failed] error, try running
-    `git config --global http.postBuffer 10g`.
+| Command          | Effect                                              |
+| ---------------- | --------------------------------------------------- |
+| `make gen-pages` | generate web pages from HTML pages in `html`        |
+| `make gen-html`  | generate HTML pages in `html` from Agda source code |
+
+To generate an Agda-Pages website from existing HTML pages that were previously
+generated using Agda, copy the HTML pages to the `html` directory, then run:
+
+```sh
+make gen-pages
+```
+
+This supports generation of Agda-Pages websites that correspond to old versions
+of Agda libraries, where generation from Agda source code may require installing
+outdated versions of Agda.
+
+The `make web` command simply combines `gen-html` with `gen-pages`.
 
 ## Versioning
 

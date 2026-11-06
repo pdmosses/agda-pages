@@ -226,7 +226,7 @@ gen-html: clean-html
 # Assumption: Loading the ROOT-FILES does not report errors.
 
 	@for file in $(ROOT-FILES); do \
-	    $(AGDA-QUIET) --html --html-highlight=code --highlight-occurrences \
+	    $(AGDA-QUIET) --html --html-highlight=auto --highlight-occurrences \
 	        --html-dir=html $${file}; \
 	done
 	@rm -f html/*.css html/*.js
@@ -243,7 +243,7 @@ gen-html: clean-html
 #   - empty code blocks are discarded.
 
 # The files in the html directory are transformed to Markdown pages as follows:
-#   - *.html: wrap the whole file in <pre class="Agda">...</pre> tags.
+#   - *.html: wrap the body of the file in pre and code tags.
 #   - *.tex:  move the pre tags from code blocks to wrap the whole file.
 #   - *.md:   leave the pre tags around code blocks unchanged.
 # Files with other extensions are from unsupported kinds of literate Agda,
@@ -255,7 +255,7 @@ gen-html: clean-html
 # top-level heading is added, if missing.
 
 # To produce the intended navigation, the file generated for module M1. ... .Mn
-# in html needs to be renamed to MD/M1/.../Mn/index.md or MD/M1/.../Mn.md,
+# in html needs to be renamed to M1/.../Mn/index.md or M1/.../Mn.md,
 # depending on the setting of INDEXES.
 
 # Assumption: For all M, module M and module M.index do not both exist
@@ -302,9 +302,10 @@ gen-pages: clean-pages
 	    _='# Adjust the pre and code tags:'; \
 	    case $${file} in \
 	    *.html) \
-		_='# Wrap the file in pre and code tags:'; \
-		$(SD) '\A' '<pre class="Agda"><code class="Agda">' $${file}; \
-		$(SD) '\z' '</code></pre>' $${file}; \
+		_='# Remove the tags enclosing the body, then wrap in pre and code tags:'; \
+		$(SD) '\A(.|\n)*?<body><pre class="Agda">' \
+		      '<pre class="Agda"><code class="Agda">' $${file}; \
+		$(SD) '</pre></body>(.|\n)*?\z' '</code></pre>' $${file}; \
 		_='# Prepend front matter:'; \
 		$(SD) -- '\A' "---\ntitle: $${title}\nhide: toc\n---\n\n" $${file}; \
 		;; \
