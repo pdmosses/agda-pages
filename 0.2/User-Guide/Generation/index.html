@@ -638,6 +638,28 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#generation-from-agda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation from Agda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-from-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation from HTML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#versioning" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -702,6 +724,28 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#generation-from-agda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation from Agda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-from-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation from HTML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#versioning" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -752,25 +796,12 @@
 <h1 id="generation">Generation</h1>
 <p>All <code>make</code> commands are to be run from the directory that contains
 <code>properdocs.yml</code>, <code>docs</code>, and your <code>Makefile</code>.</p>
-<p>To check your Agda code, generate/update your local website,
-and browse<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> a preview of your website locally, run:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>check
-make<span class="w"> </span>web
-make<span class="w"> </span>serve
-</code></pre></div>
-<p>Then to publish the generated website on GitHub Pages, run:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>deploy
-</code></pre></div>
-<p>ProperDocs reports any broken internal links when serving or deploying the website.
-You can also check <em>before</em> deploying that all internal and external links are
-valid by installing <a href="https://github.com/filiph/linkcheck/">linkcheck</a>, serving your website locally, and running:</p>
-<div class="highlight"><pre><span></span><code>your-path-to-linkcheck/linkcheck<span class="w"> </span>-e<span class="w"> </span>:your-localhost-port<span class="w"> </span>--skip-file<span class="w"> </span>your-path-to-agda-pages/skip.txt
-</code></pre></div>
-<p>To avoid error reports arising from checking links to CSS files, the skip-file
-should include the line:</p>
-<div class="highlight"><pre><span></span><code><span class="se">\.</span>css$
-</code></pre></div>
-<p>The Agda-Pages repository provides <code>skip.txt</code> to use as a default skip-file.</p>
+<p>Agda-Pages supports generation of websites from plain Agda and literate 
+<strong>LaTeX</strong> (<code>*.lagda</code>, <code>*.lagda.tex</code>) or <strong>Markdown</strong> (<code>*.lagda.md</code>) Agda
+source files.</p>
+<p>Agda-Pages also supports generation of websites from HTML files that were
+previously generated using Agda from <strong>plain Agda</strong> source files.</p>
+<h2 id="generation-from-agda">Generation from Agda</h2>
 <table>
 <thead>
 <tr>
@@ -793,10 +824,57 @@ should include the line:</p>
 </tr>
 <tr>
 <td><code>make deploy</code></td>
-<td>deploy an <em>unversioned</em> website on GitHub Pages<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+<td>deploy an <em>unversioned</em> website on GitHub Pages<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">1</a></sup></td>
 </tr>
 </tbody>
 </table>
+<p>To check your Agda source code, generate/update your local website,
+and browse<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup> a preview of your website locally, run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>check
+make<span class="w"> </span>web
+make<span class="w"> </span>serve
+</code></pre></div>
+<p>Then to publish the generated website on GitHub Pages, run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>deploy
+</code></pre></div>
+<p>ProperDocs reports any broken internal links when serving or deploying the website.
+You can also check <em>before</em> deploying that all internal and external links are
+valid by installing <a href="https://github.com/filiph/linkcheck/">linkcheck</a>, serving your website locally, and running:</p>
+<div class="highlight"><pre><span></span><code>your-path-to-linkcheck/linkcheck<span class="w"> </span>-e<span class="w"> </span>:your-localhost-port<span class="w"> </span>--skip-file<span class="w"> </span>your-path-to-agda-pages/skip.txt
+</code></pre></div>
+<p>To avoid error reports arising from checking links to CSS files, the skip-file
+should include the line:</p>
+<div class="highlight"><pre><span></span><code><span class="se">\.</span>css$
+</code></pre></div>
+<p>The Agda-Pages repository provides <code>skip.txt</code> to use as a default skip-file.</p>
+<h2 id="generation-from-html">Generation from HTML</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make gen-pages</code></td>
+<td>generate web pages from HTML pages in <code>html</code></td>
+</tr>
+<tr>
+<td><code>make gen-html</code></td>
+<td>generate HTML pages in <code>html</code> from Agda source code</td>
+</tr>
+</tbody>
+</table>
+<p>To generate an Agda-Pages website from existing HTML pages that were previously
+generated from <em>plain</em> Agda source code using Agda, copy the HTML pages to the
+<code>html</code> directory, then run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>gen-pages
+</code></pre></div>
+<p>This supports generation of Agda-Pages websites that correspond to old versions
+of Agda libraries, where generation from the Agda source code might require
+installing an outdated version of Agda.</p>
+<p>The <code>make web</code> command simply combines <code>gen-html</code> with <code>gen-pages</code>.</p>
 <h2 id="versioning">Versioning</h2>
 <p>The <a href="https://github.com/jimporter/mike/">mike</a> utility makes it easy to deploy multiple versions of your website.
 It is enabled by the following setting in <code>properdocs.yml</code>:</p>
@@ -862,11 +940,11 @@ a different version.</p>
 <tbody>
 <tr>
 <td><code>make clean</code></td>
-<td>remove unprotected configuration-dependent generated files</td>
+<td>remove <code>html</code> and unprotected <code>docs/*.md</code> files</td>
 </tr>
 <tr>
 <td><code>make clean-all</code></td>
-<td>remove all unprotected generated files</td>
+<td>remove all generated files</td>
 </tr>
 <tr>
 <td><code>make help</code></td>
@@ -876,18 +954,19 @@ a different version.</p>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>make clean</code> and <code>make clean-all</code> <strong>delete</strong> the local generated website!</p>
+<p><code>make clean</code> and <code>make clean-all</code> <strong>delete</strong> the local generated website!
+Regnerate before deploying.</p>
 </div>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:1">
-<p>By default, ProperDocs serves the website at <code>localhost:8000</code>. You can change
-that by setting <code>SERVER</code> to a different port number in your Makefile.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:2">
 <p>In case of an <a href="https://stackoverflow.com/questions/15240815/"><code>RPC failed</code></a> error, try running
-<code>git config --global http.postBuffer 10g</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<code>git config --global http.postBuffer 10g</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1">
+<p>By default, ProperDocs serves the website at <code>localhost:8000</code>. You can change
+that by setting <code>SERVER</code> to a different port number in your Makefile.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
