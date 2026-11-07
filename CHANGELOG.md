@@ -27,7 +27,7 @@ No unreleased code updates.
 
 ----
 
-## [0.2.1]: 2026-11-06
+## [0.2.1]: 2026-11-07
 
 This release adds support for generating a website from HTML files copied from
 other websites. The new command `make gen-pages` generates Markdown files in

@@ -3,9 +3,12 @@
 All `make` commands are to be run from the directory that contains
 `properdocs.yml`, `docs`, and your `Makefile`.
 
-Agda-Pages supports generation of websites from Agda source code.
-It also supports generation of websites from HTML files that were
-previously generated using Agda.
+Agda-Pages supports generation of websites from plain Agda and literate 
+**LaTeX** (`*.lagda`, `*.lagda.tex`) or **Markdown** (`*.lagda.md`) Agda
+source files.
+
+Agda-Pages also supports generation of websites from HTML files that were
+previously generated using Agda from **plain Agda** source files.
 
 ## Generation from Agda
 
@@ -72,7 +75,7 @@ make gen-pages
 ```
 
 This supports generation of Agda-Pages websites that correspond to old versions
-of Agda libraries – generation from the Agda source code might require
+of Agda libraries, where generation from the Agda source code might require
 installing an outdated version of Agda.
 
 The `make web` command simply combines `gen-html` with `gen-pages`.

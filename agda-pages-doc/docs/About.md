@@ -48,16 +48,14 @@ The **[Agda-Pages Demo]** website illustrates and tests use of Agda-Pages.
 The [Demo] section lists the Agda files included in the repository; the
 [Library] section lists the many files imported by the included modules.
 
-The following websites were originally generated with [Agda-Material template].
-Their development involved editing a large Makefile copied from the template,
-with manual updates of the copied Makefile for new releases of Agda-Material.
-
-The [Agda-Pages repository] supersedes the Agda-Material template. When it is
+The [Agda-Pages repository] supersedes the [Agda-Material template]. When it is
 added as a submodule, a simple Git command updates all its files to the latest
 commit.
 
-The websites listed below have already been refactored to use Agda-Pages instead
-of the files copied from the [Agda-Material template].
+The following websites were originally generated using the Agda-Material template.
+Their development involved editing a large Makefile copied from the template,
+with manual updates of the copied Makefile for new releases of Agda-Material.
+They have now been refactored to use Agda-Pages instead of Agda-Material.
 
 ### Denotational semantics in Agda
 
@@ -67,7 +65,7 @@ embeddings have evolved.
 
 ### Agda standard library
 
-The [Agda-StdLib] website is a prototype generated from the HTML files depolyed
+The [Agda-StdLib] website is a prototype generated from the HTML files deployed
 on the official [Standard Library] website. The different versions show how the
 library has evolved.
 
